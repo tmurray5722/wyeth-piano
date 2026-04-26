@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Wyeth Fertig Admin | Availability</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin.css">
+  </head>
+  <body class="admin-body">
+    <main class="admin-shell">
+      <section class="admin-hero">
+        <p class="kicker">Calendar Admin</p>
+        <h1>Wyeth Fertig Availability</h1>
+        <p>Update the public booking calendar without touching code.</p>
+        <a href="/" class="button secondary">View Site</a>
+      </section>
+
+      <section class="admin-panel" id="loginPanel">
+        <h2>Sign in</h2>
+        <form id="loginForm" class="admin-form">
+          <label>
+            Admin password
+            <input id="password" type="password" autocomplete="current-password" required>
+          </label>
+          <button class="button primary" type="submit">Open Admin</button>
+          <p class="form-status" id="loginStatus" role="status"></p>
+        </form>
+      </section>
+
+      <section class="admin-panel hidden" id="editorPanel">
+        <div class="admin-panel-header">
+          <div>
+            <h2>Availability Rules</h2>
+            <p>Regular days plus special one-off opens and blackouts.</p>
+          </div>
+          <button class="button ghost" type="button" id="logoutButton">Log Out</button>
+        </div>
+
+        <form id="availabilityForm" class="admin-form">
+          <div class="admin-grid">
+            <label>
+              Artist name
+              <input id="artistName" type="text" required>
+            </label>
+            <label>
+              Booking email
+              <input id="bookingEmail" type="email" required>
+            </label>
+            <label>
+              Default event duration
+              <select id="eventDurationHours">
+                <option value="1">1 hour</option>
+                <option value="1.5">1.5 hours</option>
+                <option value="2">2 hours</option>
+                <option value="2.5">2.5 hours</option>
+                <option value="3">3 hours</option>
+              </select>
+            </label>
+          </div>
+
+          <fieldset>
+            <legend>Regular available weekdays</legend>
+            <div class="weekday-checks" id="weekdayChecks"></div>
+          </fieldset>
+
+          <div class="date-manager">
+            <div>
+              <label>
+                Add an available date
+                <input id="extraDateInput" type="date">
+              </label>
+              <button class="button ghost" type="button" id="addExtraDate">Add Open Date</button>
+              <div class="date-list" id="extraDateList"></div>
+            </div>
+            <div>
+              <div class="range-fields">
+                <label>
+                  Blackout start
+                  <input id="blackoutStartInput" type="date">
+                </label>
+                <label>
+                  Blackout end
+                  <input id="blackoutEndInput" type="date">
+                </label>
+              </div>
+              <button class="button ghost" type="button" id="addBlackoutDate">Add Blackout</button>
+              <div class="date-list" id="blackoutDateList"></div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="button primary" type="submit">Save Calendar</button>
+            <a class="button ghost" href="/#book">Preview Calendar</a>
+          </div>
+          <p class="form-status" id="saveStatus" role="status"></p>
+        </form>
+      </section>
+
+      <section class="admin-panel hidden" id="requestsPanel">
+        <div class="admin-panel-header">
+          <div>
+            <h2>Booking Requests</h2>
+            <p>Accepting a request confirms the date and removes it from public booking.</p>
+          </div>
+          <button class="button ghost" type="button" id="refreshRequests">Refresh</button>
+        </div>
+        <div class="request-list" id="requestList"></div>
+        <p class="form-status" id="requestStatus" role="status"></p>
+      </section>
+    </main>
+
+    <script src="admin.js"></script>
+  </body>
+</html>
