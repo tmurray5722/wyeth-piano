@@ -240,6 +240,10 @@ h2 {
   line-height: 1.75;
 }
 
+.intro p:last-child {
+  color: var(--ivory);
+}
+
 .section-band .intro p:last-child,
 .section-band .section-heading p {
   color: rgba(255, 250, 240, 0.74);

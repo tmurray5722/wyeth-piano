@@ -159,7 +159,7 @@ function createCalendarHold(booking) {
   const stamp = (date) => date.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
   const description = [
     "Accepted gig request for Wyeth Fertig",
-    `Event type: ${booking.eventType}`,
+    `Performance format: ${booking.eventType}`,
     `Client email: ${booking.clientEmail}`,
     `Length: ${booking.durationHours} hours`
   ].join("\\n");
