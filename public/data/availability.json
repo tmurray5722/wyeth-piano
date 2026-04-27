@@ -1,0 +1,12 @@
+{
+  "artistName": "Wyeth Fertig",
+  "bookingEmail": "wyethfertig@gmail.com",
+  "eventDurationHours": 2,
+  "availableWeekdays": [
+    0,
+    5,
+    6
+  ],
+  "extraAvailableDates": [],
+  "blackoutDates": []
+}

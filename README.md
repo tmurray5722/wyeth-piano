@@ -26,6 +26,8 @@ Vercel project:
 https://vercel.com/tom-test-57/wyeth-piano
 ```
 
+The `public/` folder is included for Vercel static deployments. If Vercel's Output Directory is set to `public`, it will serve `public/index.html`.
+
 Admin panel:
 
 ```text
