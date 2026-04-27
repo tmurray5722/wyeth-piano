@@ -242,6 +242,7 @@ h2 {
 
 .intro p:last-child {
   color: var(--ivory);
+  font-family: "Times New Roman", Times, serif;
 }
 
 .section-band .intro p:last-child,

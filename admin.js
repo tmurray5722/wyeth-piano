@@ -181,7 +181,7 @@ async function loadBookingRequests() {
       <div>
         <strong>${formatDate(request.date)} at ${formatRequestTime(request.timeSlot)}</strong>
         <span>${request.durationHours} hours · ${request.eventType}</span>
-        <span>${request.venue || "Venue TBD"}</span>
+        <span>${request.venue || "Address TBD"}</span>
         <a href="mailto:${request.clientEmail}">${request.clientEmail}</a>
       </div>
     `;

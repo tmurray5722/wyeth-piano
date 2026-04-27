@@ -170,7 +170,7 @@ bookingForm.addEventListener("submit", async (event) => {
 
   const subject = encodeURIComponent(`Gig request for ${formatDisplayDate(selectedDate)}`);
   const body = encodeURIComponent(
-    `Hi ${bookingConfig.artistName},\n\nI'd like to request a jazz piano booking.\n\nDate: ${formatDisplayDate(selectedDate)}\nTime: ${details.timeSlot}\nLength: ${details.durationHours} hours\nPerformance format: ${details.eventType}\nVenue/city: ${details.venue}\nMy email: ${details.clientEmail}\n\nPlease let me know if this date can be confirmed.\n`
+    `Hi ${bookingConfig.artistName},\n\nI'd like to request a jazz piano booking.\n\nDate: ${formatDisplayDate(selectedDate)}\nTime: ${details.timeSlot}\nLength: ${details.durationHours} hours\nPerformance format: ${details.eventType}\nAddress: ${details.venue}\nMy email: ${details.clientEmail}\n\nPlease let me know if this date can be confirmed.\n`
   );
 
   formStatus.textContent = "Request sent. Opening an email copy with the selected details.";
