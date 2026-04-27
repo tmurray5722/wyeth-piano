@@ -191,7 +191,7 @@ async function loadBookingRequests() {
     acceptButton.textContent = "Accept";
     acceptButton.addEventListener("click", async () => {
       try {
-        const result = await requestJson(`/api/admin/booking-requests/${request.id}/accept`, { method: "POST" });
+        const result = await requestJson(`/api/admin/accept-booking-request?id=${encodeURIComponent(request.id)}`, { method: "POST" });
         setStatus(requestStatus, "Request accepted. Date is now removed from public booking.");
         downloadTextFile(`wyeth-fertig-${request.date}.ics`, result.calendarHold, "text/calendar;charset=utf-8");
         await loadBookingRequests();

@@ -26,7 +26,7 @@ Vercel project:
 https://vercel.com/tom-test-57/wyeth-piano
 ```
 
-The `public/` folder is included for Vercel static deployments. If Vercel's Output Directory is set to `public`, it will serve `public/index.html`.
+The `public/` folder is included for Vercel static deployments. The Vercel config also deploys `/api` serverless routes for the live admin panel.
 
 Admin panel:
 
@@ -45,6 +45,17 @@ For a real deployment, set a private password before starting the server:
 ```bash
 ADMIN_PASSWORD="use-a-real-password" npm start
 ```
+
+For the live Vercel admin panel, set these environment variables in Vercel:
+
+```text
+ADMIN_PASSWORD
+SESSION_SECRET
+KV_REST_API_URL
+KV_REST_API_TOKEN
+```
+
+`KV_REST_API_URL` and `KV_REST_API_TOKEN` come from Vercel KV or Upstash Redis. Without those storage variables, the live admin can load defaults but cannot persist calendar edits or booking requests.
 
 ## Updating Availability
 

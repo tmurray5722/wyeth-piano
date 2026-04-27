@@ -304,12 +304,19 @@ async function handleApi(request, response, pathname) {
     return true;
   }
 
-  if (request.method === "POST" && pathname.startsWith("/api/admin/booking-requests/") && pathname.endsWith("/accept")) {
+  const isAcceptRequestRoute =
+    request.method === "POST" &&
+    ((pathname.startsWith("/api/admin/booking-requests/") && pathname.endsWith("/accept")) ||
+      pathname === "/api/admin/accept-booking-request");
+
+  if (isAcceptRequestRoute) {
     if (!isAdmin(request)) {
       sendJson(response, 401, { error: "Login required" });
       return true;
     }
-    const requestId = pathname.split("/")[4];
+    const requestId = pathname === "/api/admin/accept-booking-request"
+      ? new URL(request.url, `http://${request.headers.host}`).searchParams.get("id")
+      : pathname.split("/")[4];
     const bookingRequests = await readJsonFile(bookingRequestsPath, []);
     const requestIndex = bookingRequests.findIndex((item) => item.id === requestId);
     if (requestIndex === -1) {
